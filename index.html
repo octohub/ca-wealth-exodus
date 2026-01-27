@@ -451,6 +451,164 @@
             text-align: center;
             margin-top: 30px;
         }
+
+        .looters-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid #c0392b;
+        }
+
+        .looters-title {
+            font-size: 1.5rem;
+            color: #c0392b;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .looters-subtitle {
+            color: #888;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .looters-category {
+            margin-bottom: 30px;
+        }
+
+        .looters-category-title {
+            color: #e74c3c;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .looters-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        @media (max-width: 700px) {
+            .looters-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .looter-card {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .looter-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #c0392b;
+            margin-bottom: 15px;
+        }
+
+        .looter-name {
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .looter-role {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .looter-contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .looter-contact {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: #aaa;
+            text-decoration: none;
+            font-size: 0.85rem;
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .looter-contact:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .looter-contact-text {
+            color: #888;
+            font-size: 0.85rem;
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .copy-btn {
+            background: none;
+            border: none;
+            color: #888;
+            cursor: pointer;
+            padding: 2px;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .copy-btn:hover {
+            color: #fff;
+        }
+
+        .copy-btn.copied {
+            color: #27ae60;
+        }
+
+        .copy-tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #27ae60;
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+            margin-bottom: 5px;
+        }
+
+        .copy-btn.copied .copy-tooltip {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -570,6 +728,77 @@
                     <h4>Contact Your Legislators</h4>
                     <p>Contact your State Assemblymember and Senator to urge the adoption of a constitutional amendment that permanently prohibits the imposition of wealth taxes in California.</p>
                     <a href="https://findyourrep.legislature.ca.gov/" target="_blank" class="action-btn">Find Your Representatives</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="looters-section">
+            <h3 class="looters-title">The Looter Dream Team</h3>
+            <p class="looters-subtitle">The People Responsible</p>
+
+            <div class="looters-category">
+                <h4 class="looters-category-title">Lead Proponents</h4>
+                <div class="looters-grid">
+                    <div class="looter-card">
+                        <img src="Suzanne.jpeg" alt="Suzanne Jimenez" class="looter-photo" loading="lazy">
+                        <div class="looter-name">Suzanne Jimenez</div>
+                        <div class="looter-role">SEIU-UHW Representative & Public Face of the Act</div>
+                        <div class="looter-contacts">
+                            <a href="https://x.com/SuzanneJimenez" target="_blank" class="looter-contact">@SuzanneJimenez on X</a>
+                            <a href="https://www.linkedin.com/in/suzannejimenez/" target="_blank" class="looter-contact">LinkedIn</a>
+                        </div>
+                    </div>
+                    <div class="looter-card">
+                        <img src="Jim.jpeg" alt="Jim Mangia" class="looter-photo" loading="lazy">
+                        <div class="looter-name">Jim Mangia</div>
+                        <div class="looter-role">CEO, St John Community Health</div>
+                        <div class="looter-contacts">
+                            <a href="https://x.com/sjhealthca" target="_blank" class="looter-contact">@sjhealthca on X</a>
+                            <a href="mailto:info@sjch.org" class="looter-contact">info@sjch.org</a>
+                            <div class="looter-contact-text">St John Admin: 323-541-1600 <button class="copy-btn" onclick="copyToClipboard('323-541-1600', this)" title="Copy phone number"><span class="copy-tooltip">Copied!</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="looters-category">
+                <h4 class="looters-category-title">Drafters of this Proposal</h4>
+                <div class="looters-grid">
+                    <div class="looter-card">
+                        <img src="David.jpeg" alt="David Gamage" class="looter-photo" loading="lazy">
+                        <div class="looter-name">David Gamage</div>
+                        <div class="looter-role">Professor, University of Missouri</div>
+                        <div class="looter-contacts">
+                            <a href="https://x.com/davidsgamage" target="_blank" class="looter-contact">@davidsgamage on X</a>
+                            <a href="mailto:dgamage@missouri.edu" class="looter-contact">dgamage@missouri.edu</a>
+                            <div class="looter-contact-text">573-882-2624 <button class="copy-btn" onclick="copyToClipboard('573-882-2624', this)" title="Copy phone number"><span class="copy-tooltip">Copied!</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button></div>
+                        </div>
+                    </div>
+                    <div class="looter-card">
+                        <img src="Brian.jpeg" alt="Brian Galle" class="looter-photo" loading="lazy">
+                        <div class="looter-name">Brian Galle</div>
+                        <div class="looter-role">Professor, UC Berkeley</div>
+                        <div class="looter-contacts">
+                            <a href="mailto:brian.galle@berkeley.edu" class="looter-contact">brian.galle@berkeley.edu</a>
+                        </div>
+                    </div>
+                    <div class="looter-card">
+                        <img src="Darien.jpeg" alt="Darien Shanske" class="looter-photo" loading="lazy">
+                        <div class="looter-name">Darien Shanske</div>
+                        <div class="looter-role">Professor, UC Davis</div>
+                        <div class="looter-contacts">
+                            <a href="mailto:dshanske@ucdavis.edu" class="looter-contact">dshanske@ucdavis.edu</a>
+                            <div class="looter-contact-text">530-752-5860 <button class="copy-btn" onclick="copyToClipboard('530-752-5860', this)" title="Copy phone number"><span class="copy-tooltip">Copied!</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button></div>
+                        </div>
+                    </div>
+                    <div class="looter-card">
+                        <img src="Emmanuel.jpeg" alt="Emmanuel Saez" class="looter-photo" loading="lazy">
+                        <div class="looter-name">Emmanuel Saez</div>
+                        <div class="looter-role">Professor, UC Berkeley</div>
+                        <div class="looter-contacts">
+                            <a href="mailto:saez@econ.berkeley.edu" class="looter-contact">saez@econ.berkeley.edu</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -721,6 +950,14 @@
 
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', updateDisplay);
+
+        // Copy to clipboard function
+        function copyToClipboard(text, btn) {
+            navigator.clipboard.writeText(text).then(() => {
+                btn.classList.add('copied');
+                setTimeout(() => btn.classList.remove('copied'), 1500);
+            });
+        }
     </script>
 </body>
 </html>
