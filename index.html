@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>California Wealth Exodus | Lost Tax Revenue Tracker</title>
+    <meta name="description" content="48 billionaires fled California. $1.1T in wealth gone. $16.5B/year in lost tax revenue. Track the real impact of the proposed Billionaire Tax Act.">
+    <meta name="keywords" content="California billionaire tax, 2026 Billionaire Tax Act, California wealth tax, billionaires leaving California, California tax exodus, asset seizure tax, California ballot initiative, wealth tax California 2026, billionaire migration, Silicon Valley exodus">
+    <meta name="author" content="Dick Lucas">
+    <meta name="robots" content="index, follow">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="canonical" href="https://cawealthexodus.com/">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cawealthexodus.com/">
+    <meta property="og:title" content="California Wealth Exodus | Lost Tax Revenue Tracker">
+    <meta property="og:description" content="48 billionaires fled California. $1.1T in wealth gone. $16.5B/year in lost tax revenue. Track the real impact of the proposed Billionaire Tax Act.">
+    <meta property="og:image" content="https://cawealthexodus.com/og-image.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://cawealthexodus.com/">
+    <meta name="twitter:title" content="California Wealth Exodus | Lost Tax Revenue Tracker">
+    <meta name="twitter:description" content="48 billionaires fled California. $1.1T in wealth gone. $16.5B/year in lost tax revenue. Track the real impact of the proposed Billionaire Tax Act.">
+    <meta name="twitter:image" content="https://cawealthexodus.com/og-image.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "California Lost Tax Revenue Tracker",
+        "description": "Track billionaires leaving California due to the proposed 2026 Billionaire Tax Act and the economic impact on state tax revenue.",
+        "url": "https://cawealthexodus.com/",
+        "keywords": "California billionaire tax, wealth tax, 2026 Billionaire Tax Act, billionaire exodus",
+        "about": {
+            "@type": "Thing",
+            "name": "California 2026 Billionaire Tax Act",
+            "description": "A proposed California ballot initiative that would impose a one-time 5% tax on net worth exceeding $1 billion"
+        }
+    }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #f39c12, #e74c3c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .sections-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 900px) {
+            .sections-wrapper {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section.confirmed {
+            border-top: 4px solid #e74c3c;
+        }
+
+        .section.considering {
+            border-top: 4px solid #f39c12;
+        }
+
+        .section.likely {
+            border-top: 4px solid #e67e22;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .confirmed .section-icon {
+            background: rgba(231, 76, 60, 0.2);
+        }
+
+        .considering .section-icon {
+            background: rgba(243, 156, 18, 0.2);
+        }
+
+        .likely .section-icon {
+            background: rgba(230, 126, 34, 0.2);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .confirmed .section-title {
+            color: #e74c3c;
+        }
+
+        .considering .section-title {
+            color: #f39c12;
+        }
+
+        .likely .section-title {
+            color: #e67e22;
+        }
+
+        .stat-card {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .confirmed .stat-value {
+            color: #e74c3c;
+        }
+
+        .considering .stat-value {
+            color: #f39c12;
+        }
+
+        .likely .stat-value {
+            color: #e67e22;
+        }
+
+        .stat-detail {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .billionaire-list {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .billionaire-list h4 {
+            font-size: 0.85rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .billionaire-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .billionaire-item:last-child {
+            border-bottom: none;
+        }
+
+        .billionaire-name {
+            font-weight: 500;
+            color: #ccc;
+        }
+
+        .billionaire-company {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .billionaire-worth {
+            font-weight: 600;
+            color: #888;
+        }
+
+        .total-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .total-title {
+            font-size: 1.2rem;
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .total-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .total-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .total-stat {
+            padding: 20px;
+        }
+
+        .total-stat .stat-value {
+            color: #9b59b6;
+            font-size: 2.2rem;
+        }
+
+        .action-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid #27ae60;
+        }
+
+        .action-title {
+            font-size: 1.5rem;
+            color: #27ae60;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .action-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 700px) {
+            .action-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .action-card {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .action-card h4 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .action-card p {
+            color: #aaa;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .action-btn {
+            display: block;
+            background: #27ae60;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+            text-align: center;
+        }
+
+        .action-btn:hover {
+            background: #2ecc71;
+            color: #fff;
+        }
+
+        .polymarket-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .polymarket-title {
+            font-size: 1.2rem;
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .polymarket-embed {
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .polymarket-embed iframe {
+            max-width: 100%;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #888;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        .github-btn {
+            display: inline-block;
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 20px;
+            transition: background 0.2s;
+        }
+
+        .github-btn:hover {
+            background: #555;
+            color: #fff;
+        }
+
+        .commentary-section {
+            margin-top: 40px;
+        }
+
+        .commentary-heading {
+            font-size: 2rem;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .commentary-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .commentary-card h3 {
+            color: #e74c3c;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .commentary-card p {
+            color: #ccc;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .update-note {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-top: 40px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .last-updated {
+            color: #888;
+            font-size: 0.8rem;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+
+        .copy-btn {
+            background: none;
+            border: none;
+            color: #888;
+            cursor: pointer;
+            padding: 2px;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .copy-btn:hover {
+            color: #fff;
+        }
+
+        .copy-btn.copied {
+            color: #27ae60;
+        }
+
+        .copy-tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #27ae60;
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+            margin-bottom: 5px;
+        }
+
+        .copy-btn.copied .copy-tooltip {
+            opacity: 1;
+        }
+
+        .phone-link {
+            color: #888;
+            text-decoration: none;
+        }
+
+        .phone-link:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>California Wealth Exodus</h1>
+            <p class="subtitle">Tracking the lost tax revenue already from the mere proposal of the <s>Billionaire Tax Act</s> Asset Seizure Act (announced October 22, 2025)</p>
+        </header>
+
+        <div class="total-section">
+            <h3 class="total-title">Impact So Far:</h3>
+            <div class="total-grid">
+                <div class="total-stat">
+                    <div class="stat-label">Total Billionaire Departures</div>
+                    <div class="stat-value" id="total-count">0</div>
+                </div>
+                <div class="total-stat">
+                    <div class="stat-label">Wealth that has left California</div>
+                    <div class="stat-value" id="total-wealth">$0</div>
+                </div>
+                <div class="total-stat">
+                    <div class="stat-label">Lost Annual Tax Revenue</div>
+                    <div class="stat-value" id="total-tax">$0</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sections-wrapper">
+            <div class="section confirmed">
+                <div class="section-header">
+                    <div class="section-icon">&#x1F6EB;</div>
+                    <h2 class="section-title">Public Departures</h2>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">Billionaires</div>
+                    <div class="stat-value" id="confirmed-count">0</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">Combined Net Worth</div>
+                    <div class="stat-value" id="confirmed-wealth">$0</div>
+                    <div class="stat-detail">Wealth that has left California</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">Lost Annual Tax Revenue</div>
+                    <div class="stat-value" id="confirmed-tax">$0</div>
+                    <div class="stat-detail">Estimated 1.5% of wealth in annual state taxes</div>
+                </div>
+
+                <div class="billionaire-list">
+                    <h4>Who Left</h4>
+                    <div id="confirmed-list"></div>
+                </div>
+            </div>
+
+            <div class="section likely">
+                <div class="section-header">
+                    <div class="section-icon">&#x1F3C3;</div>
+                    <h2 class="section-title">Stealth Departures</h2>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">Billionaires</div>
+                    <div class="stat-value" id="likely-count">~43</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">Combined Net Worth</div>
+                    <div class="stat-value" id="likely-wealth">~$322.5B</div>
+                    <div class="stat-detail">Based on $7.5B per billionaire</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">Lost Annual Tax Revenue</div>
+                    <div class="stat-value" id="likely-tax">$4.8B</div>
+                    <div class="stat-detail">Estimated 1.5% of wealth in annual state taxes</div>
+                </div>
+            </div>
+
+            <div class="section considering">
+                <div class="section-header">
+                    <div class="section-icon">&#x1F914;</div>
+                    <h2 class="section-title">Considering</h2>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">Billionaires (out of ~215)</div>
+                    <div class="stat-value" id="considering-count">0</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">Combined Net Worth</div>
+                    <div class="stat-value" id="considering-wealth">$0</div>
+                    <div class="stat-detail">Based on $7.5B per billionaire</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">Potential Lost Annual Revenue</div>
+                    <div class="stat-value" id="considering-tax">$0</div>
+                    <div class="stat-detail">Estimated 1.5% of wealth in annual state taxes</div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="action-section">
+            <h3 class="action-title">Take Action</h3>
+            <div class="action-grid">
+                <div class="action-card">
+                    <h4>Tell the Union to Withdraw</h4>
+                    <p>Reach out to SEIU-UHW and tell them to withdraw this proposed ballot measure, which is already costing taxpayers billions and will lead to the destruction of the startup environment that funds our state.</p>
+                    <a href="https://www.seiu-uhw.org/contact/" target="_blank" class="action-btn">Contact SEIU-UHW</a>
+                </div>
+                <div class="action-card">
+                    <h4>Contact Your Legislators</h4>
+                    <p>Contact your State Assemblymember and Senator to urge the adoption of a constitutional amendment that permanently prohibits the imposition of wealth taxes in California.</p>
+                    <a href="https://findyourrep.legislature.ca.gov/" target="_blank" class="action-btn">Find Your Representatives</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="polymarket-section">
+            <h3 class="polymarket-title">Will the Billionaire Tax Pass?</h3>
+            <div class="polymarket-embed">
+                <iframe
+                    title="polymarket-market-iframe"
+                    src="https://embed.polymarket.com/market.html?market=billionaire-one-time-wealth-tax-passes-in-california-election-2026&features=volume&theme=dark"
+                    width="400"
+                    height="180"
+                    frameborder="0"
+                    style="border-radius: 8px;">
+                </iframe>
+                <iframe
+                    title="polymarket-market-iframe"
+                    src="https://embed.polymarket.com/market.html?market=billionaire-one-time-wealth-tax-on-california-ballot&features=volume&theme=dark"
+                    width="400"
+                    height="180"
+                    frameborder="0"
+                    style="border-radius: 8px;">
+                </iframe>
+            </div>
+        </div>
+
+        <div class="commentary-section">
+            <h2 class="commentary-heading">Why should Californians be opposed?</h2>
+            <div class="commentary-card">
+                <h3>Killing the Golden Goose</h3>
+                <p>Startups are the golden goose of California. They turn into the mega businesses that fund our state. The proposed Billionaire Tax Act is coming right for the goose's throat.</p>
+            </div>
+
+            <div class="commentary-card">
+                <h3>This Bill Makes Startups Illegal</h3>
+                <p>Incalculable is the number of businesses that will never be founded in California, or individuals and businesses moving out of the state because of this. This bill makes startups illegal. It will bankrupt any founder who has paper wealth in an early stage company but not actual liquid wealth.</p>
+            </div>
+
+            <div class="commentary-card">
+                <h3>The Damage is Already Done</h3>
+                <p>The damage is already done. Billionaires have left and taken their tax revenue with them. This will have a chilling effect on California for decades to come. Even if this ballot initiative fails, who knows about next year or the year after that? The only way to remedy this now is for California to modify our constitution to prohibit asset seizure taxes explicitly.</p>
+            </div>
+
+            <div class="commentary-card">
+                <h3>The End of Private Property</h3>
+                <p>This initiative actually gives CA legislators the right to take anyone's post-tax assets anytime in the future based on a majority vote. This isn't about billionaires. This is a new "tax system" that simply destroys private property rights in America.</p>
+            </div>
+
+            <div class="commentary-card">
+                <h3>Spend Smarter First</h3>
+                <p>California already has the second highest taxes per capita in the country. Our budget has increased 62% since 2019. Let's use the budget we do have much more efficiently before we light more taxpayer dollars on fire. $24B in unaccounted-for homeless spending, $30B in unemployment fraud, $128B towards a high-speed rail to nowhere that will never get completed.</p>
+            </div>
+
+            <div class="commentary-card">
+                <h3>Better Alternatives Exist</h3>
+                <p>This Asset Seizure Act is EXTREME. There are plenty of other options to raise tax revenue. Increase income tax, increase capital gains tax, taxing loans against unrealized capital gains, eliminate tax-free rollover of certain appreciated assets, or or eliminate the step-up in basis on inheritance.</p>
+            </div>
+        </div>
+
+        <div class="update-note">
+            <strong>About the 2026 Billionaire Tax Act:</strong> This ballot initiative would impose a one-time 5% tax on the net worth of California residents exceeding $1 billion, based on residency as of January 1, 2026. Real estate, pensions, and retirement accounts are excluded. Payment can be made as a lump sum or spread over 5 years with a 7.5% annual deferral charge.
+            <br><br>
+            <strong>Lost Tax Revenue:</strong> Calculated at 1.5% of net worth annually, representing estimated ongoing state tax revenue (income, capital gains, etc.) California loses each year when billionaires relocate.
+        </div>
+
+        <p class="last-updated">Last updated: <span id="last-updated"></span></p>
+
+        <div style="text-align: center; margin-top: 15px;">
+            <a href="https://github.com/octohub/ca-wealth-exodus" target="_blank">
+                <img src="https://img.shields.io/badge/Contribute%20on-GitHub-blue?logo=github" alt="Contribute on GitHub">
+            </a>
+        </div>
+
+        <footer>
+            <p>Data compiled from public statements, news reports, and SEC filings.</p>
+            <p style="margin-top: 10px;">Sources: SF Standard, Bloomberg, Forbes, SF Chronicle, Pirate Wires, New York Times</p>
+            <p style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">Paid for by <a href="https://x.com/dickclucas" target="_blank">Dick Lucas</a> for State Assembly 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        // Data for billionaires - easily editable
+        const data = {
+            // Billionaires who have confirmed they are leaving/left
+            confirmed: [
+                { name: "Larry Page", company: "Google/Alphabet", netWorth: 274700000000 },
+                { name: "Sergey Brin", company: "Google/Alphabet", netWorth: 253400000000 },
+                { name: "Mark Zuckerberg", company: "Meta", netWorth: 210000000000 },
+                { name: "Peter Thiel", company: "Palantir/Founders Fund", netWorth: 29400000000 },
+                { name: "David Sacks", company: "Craft Ventures", netWorth: 2000000000 },
+            ],
+
+            // Tax rate (1.5% annual state taxes = 0.015)
+            taxRate: 0.015,
+
+            // Last updated date
+            lastUpdated: "February 11, 2026"
+        };
+
+        // Format currency
+        function formatCurrency(amount) {
+            if (amount >= 1e12) {
+                return '$' + (amount / 1e12).toFixed(2) + 'T';
+            } else if (amount >= 1e9) {
+                return '$' + (amount / 1e9).toFixed(1) + 'B';
+            } else if (amount >= 1e6) {
+                return '$' + (amount / 1e6).toFixed(1) + 'M';
+            } else {
+                return '$' + amount.toLocaleString();
+            }
+        }
+
+        // Calculate totals for a group
+        function calculateTotals(group) {
+            const count = group.length;
+            const wealth = group.reduce((sum, person) => sum + person.netWorth, 0);
+            const tax = wealth * data.taxRate;
+            return { count, wealth, tax };
+        }
+
+        // Render billionaire list
+        function renderList(containerId, people) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = people.map(person => `
+                <div class="billionaire-item">
+                    <div>
+                        <div class="billionaire-name">${person.name}</div>
+                        <div class="billionaire-company">${person.company}</div>
+                    </div>
+                    <div class="billionaire-worth">${formatCurrency(person.netWorth)}</div>
+                </div>
+            `).join('');
+        }
+
+        // Update the display
+        function updateDisplay() {
+            const confirmed = calculateTotals(data.confirmed);
+
+            // Confirmed section
+            document.getElementById('confirmed-count').textContent = confirmed.count;
+            document.getElementById('confirmed-wealth').textContent = formatCurrency(confirmed.wealth);
+            document.getElementById('confirmed-tax').textContent = formatCurrency(confirmed.tax);
+            renderList('confirmed-list', data.confirmed);
+
+            // Considering section
+            document.getElementById('considering-count').textContent = '~129';
+            document.getElementById('considering-wealth').textContent = '~$967.5B';
+            document.getElementById('considering-tax').textContent = '$14.5B';
+
+            // Totals (5 public + 43 stealth only)
+            document.getElementById('total-count').textContent = '~48';
+            document.getElementById('total-wealth').textContent = '~$1.1T';
+            document.getElementById('total-tax').textContent = '~$16.5B';
+
+            // Last updated
+            document.getElementById('last-updated').textContent = data.lastUpdated;
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', updateDisplay);
+
+        // Copy to clipboard function
+        function copyToClipboard(text, btn) {
+            navigator.clipboard.writeText(text).then(() => {
+                btn.classList.add('copied');
+                setTimeout(() => btn.classList.remove('copied'), 1500);
+            });
+        }
+    </script>
+</body>
+</html>
