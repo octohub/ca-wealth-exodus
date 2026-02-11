@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>California Wealth Exodus | Lost Tax Revenue Tracker</title>
-    <meta name="description" content="48 billionaires fled California. $1.1T in wealth gone. $16.5B/year in lost tax revenue. Track the real impact of the proposed Billionaire Tax Act.">
+    <meta name="description" content="48 billionaires fled California. $1.1T in wealth gone. $16.4B/year in lost tax revenue. Track the real impact of the proposed Billionaire Tax Act.">
     <meta name="keywords" content="California billionaire tax, 2026 Billionaire Tax Act, California wealth tax, billionaires leaving California, California tax exodus, asset seizure tax, California ballot initiative, wealth tax California 2026, billionaire migration, Silicon Valley exodus">
     <meta name="author" content="Dick Lucas">
     <meta name="robots" content="index, follow">
@@ -16,14 +16,14 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://cawealthexodus.com/">
     <meta property="og:title" content="California Wealth Exodus | Lost Tax Revenue Tracker">
-    <meta property="og:description" content="48 billionaires fled California. $1.1T in wealth gone. $16.5B/year in lost tax revenue. Track the real impact of the proposed Billionaire Tax Act.">
+    <meta property="og:description" content="48 billionaires fled California. $1.1T in wealth gone. $16.4B/year in lost tax revenue. Track the real impact of the proposed Billionaire Tax Act.">
     <meta property="og:image" content="https://cawealthexodus.com/og-image.png">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://cawealthexodus.com/">
     <meta name="twitter:title" content="California Wealth Exodus | Lost Tax Revenue Tracker">
-    <meta name="twitter:description" content="48 billionaires fled California. $1.1T in wealth gone. $16.5B/year in lost tax revenue. Track the real impact of the proposed Billionaire Tax Act.">
+    <meta name="twitter:description" content="48 billionaires fled California. $1.1T in wealth gone. $16.4B/year in lost tax revenue. Track the real impact of the proposed Billionaire Tax Act.">
     <meta name="twitter:image" content="https://cawealthexodus.com/og-image.png">
 
     <!-- Structured Data -->
@@ -503,9 +503,66 @@
         .phone-link:hover {
             color: #fff;
         }
+
+        /* Revenue Lost Counter */
+        .revenue-clock {
+            background: linear-gradient(180deg, rgba(231, 76, 60, 0.15) 0%, rgba(0, 0, 0, 0) 100%);
+            border-bottom: 1px solid rgba(231, 76, 60, 0.3);
+            padding: 24px 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .revenue-clock-label {
+            font-size: 0.8rem;
+            color: #a0a0a0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .revenue-clock-value {
+            font-size: 3.5rem;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+            background: linear-gradient(90deg, #e74c3c, #f39c12);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .revenue-clock-rate {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 6px;
+        }
+
+        .revenue-clock-rate span {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            .revenue-clock-value {
+                font-size: 2.2rem;
+            }
+            .revenue-clock {
+                padding: 16px 15px;
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="revenue-clock">
+        <div class="revenue-clock-label">Tax Revenue Lost Since You Arrived</div>
+        <div class="revenue-clock-value" id="revenue-clock-value">$0.00</div>
+        <div class="revenue-clock-rate">Losing <span id="revenue-per-second">$0</span>/second based on $<span id="revenue-annual-total">0</span>B/year in lost revenue</div>
+    </div>
     <div class="container">
         <header>
             <h1>California Wealth Exodus</h1>
@@ -775,14 +832,52 @@
             // Totals (5 public + 43 stealth only)
             document.getElementById('total-count').textContent = '~48';
             document.getElementById('total-wealth').textContent = '~$1.1T';
-            document.getElementById('total-tax').textContent = '~$16.5B';
+            document.getElementById('total-tax').textContent = '~$16.4B';
 
             // Last updated
             document.getElementById('last-updated').textContent = data.lastUpdated;
         }
 
+        // Revenue clock - ticks up showing tax revenue lost since page load
+        function startRevenueClock() {
+            // Calculate total annual lost tax revenue from all departed billionaires
+            const confirmedWealth = data.confirmed.reduce((sum, p) => sum + p.netWorth, 0);
+            const stealthWealth = 322500000000; // ~43 billionaires × $7.5B avg
+            const totalDepartedWealth = confirmedWealth + stealthWealth;
+            const annualLostRevenue = totalDepartedWealth * data.taxRate;
+
+            // Rate per millisecond
+            const msPerYear = 365.25 * 24 * 60 * 60 * 1000;
+            const ratePerMs = annualLostRevenue / msPerYear;
+            const ratePerSecond = annualLostRevenue / (365.25 * 24 * 60 * 60);
+
+            // Update rate display
+            document.getElementById('revenue-per-second').textContent = '$' + ratePerSecond.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('revenue-annual-total').textContent = (annualLostRevenue / 1e9).toFixed(1);
+
+            const arrivalTime = performance.now();
+
+            function tick() {
+                const elapsed = performance.now() - arrivalTime;
+                const lost = elapsed * ratePerMs;
+
+                // Format with dollars and cents, with commas
+                const dollars = Math.floor(lost);
+                const cents = Math.floor((lost - dollars) * 100).toString().padStart(2, '0');
+                const formatted = '$' + dollars.toLocaleString('en-US') + '.' + cents;
+
+                document.getElementById('revenue-clock-value').textContent = formatted;
+                requestAnimationFrame(tick);
+            }
+
+            requestAnimationFrame(tick);
+        }
+
         // Initialize on page load
-        document.addEventListener('DOMContentLoaded', updateDisplay);
+        document.addEventListener('DOMContentLoaded', () => {
+            updateDisplay();
+            startRevenueClock();
+        });
 
         // Copy to clipboard function
         function copyToClipboard(text, btn) {
